@@ -4,24 +4,6 @@
 - SSH Port: 2200
 - URL: http://ec2-13-59-30-48.us-east-2.compute.amazonaws.com/
 
-## Tasks
-1. Launch an Ubuntu Linux Server instance on [Amazon Lightsail](https://lightsail.aws.amazon.com/);
-2. Follow the instructions provided to SSH into your server;
-3. Update all currently installed packages;
-4. Change the SSH port from 22 to 2200;
-5. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123);
-6. Create a new account user named grader;
-7. Give the grader the permission to sudo;
-8. Generate keys on local machine using ssh-keygen;
-9. Configure the local timezone to UTC;
-10. Install and configure Apache to serve a Python mod_wsgi application;
-11. Install and configure PostgreSQL:
-  - Do not allow remote connections;
-  - Create a new user named catalog that has limited permissions to your catalog application database.
-12. Install git;
-13. Clone and setup your Catalog App project;
-14. Configure it on your server so that it works correctly by visiting the IP address of your server in a browser. Make sure your .git directory is not publicly accessible through a browser!
-
 ## Configuration
 
 1. Update all currently installed pacckages running:
@@ -128,3 +110,18 @@
   ```
   - Restart Apache: `sudo service apache2 restart`
 
+13. Disable ssh login for root user:
+  - `sudo vi /etc/ssh/sshd_config`
+  -  Find the PermitRootLogin line and change to `PermitRootLogin no`
+  - Restart the service: `sudo service ssh restart`
+  
+14. Configure to enable automatic package updates:
+  - `sudo apt-get install unattended-upgrades`
+  - `sudo dpkg-reconfigure unattended-upgrades`
+
+## Third-Party Resources
+- [Flask - mod_wsgi (Apache)](http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/)
+- [How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+- [How To Secure PostgreSQL on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps#do-not-allow-remote-connections)
+- [How do I enable automatic updates?](https://askubuntu.com/questions/9/how-do-i-enable-automatic-updates)
+- [Timezone setting in Linux](https://unix.stackexchange.com/questions/110522/timezone-setting-in-linux)
