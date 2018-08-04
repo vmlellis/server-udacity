@@ -9,6 +9,7 @@
 1. Update all currently installed pacckages running:
   - `sudo apt-get update` to download the packages list
   - `sudo apt-get upgrade` to install the new versions of packages
+  - `sudo apt-get dist-upgrade` to install new packages or remove installed packages if that is necessary to satisfy dependencies.
 
 2. Create a new user named grader:
   - `sudo adduser grader`
