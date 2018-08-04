@@ -5,7 +5,7 @@
 - URL: http://ec2-13-59-30-48.us-east-2.compute.amazonaws.com/
 
 ## Tasks
-1. Launch an Ubuntu Linux Server on [Amazon Lightsail](https://lightsail.aws.amazon.com/);
+1. Launch an Ubuntu Linux Server instance on [Amazon Lightsail](https://lightsail.aws.amazon.com/);
 2. Follow the instructions provided to SSH into your server;
 3. Update all currently installed packages;
 4. Change the SSH port from 22 to 2200;
